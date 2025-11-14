@@ -14,14 +14,14 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class KnowledgeBaseManager:
-    def __init__(self, storage_dir="./app/storage", documents_dir="./app/downloads"):
+    def __init__(self, storage_dir="./storage", documents_dir="./downloads"):
         self.storage_dir = storage_dir
         self.documents_dir = documents_dir
         self.index = None
 
         # Configure LlamaIndex settings
-        Settings.llm = Gemini(api_key=os.environ.get("GEMINI_API_KEY"))
-        Settings.embed_model = GeminiEmbedding(api_key=os.environ.get("GEMINI_API_KEY"), model_name="models/text-embedding-004")
+        Settings.llm = Gemini(api_key=os.environ.get("GOOGLE_API_KEY"))
+        Settings.embed_model = GeminiEmbedding(api_key=os.environ.get("GOOGLE_API_KEY"), model_name="models/text-embedding-004")
 
     def build_index(self, initial_doc_path="fsm-faq.md"):
         """Builds the vector store index from documents."""
