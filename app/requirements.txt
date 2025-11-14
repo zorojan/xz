@@ -1,0 +1,6 @@
+google-adk==1.16.0
+fastapi
+uvicorn
+llama-index
+llama-index-llms-gemini
+llama-index-embeddings-gemini

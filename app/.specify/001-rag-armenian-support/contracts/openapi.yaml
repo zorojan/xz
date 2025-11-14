@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: RAG Agent API
+  version: 1.0.0
+paths:
+  /upload-pdf:
+    post:
+      summary: Upload a PDF document to the knowledge base
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: PDF uploaded and indexed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "File 'example.pdf' uploaded and indexed successfully."
+        '400':
+          description: Bad request (e.g., no file, not a PDF)
