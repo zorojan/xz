@@ -22,6 +22,9 @@ import logging
 from pathlib import Path
 from dotenv import load_dotenv
 
+# Load environment variables first, before other imports
+load_dotenv()
+
 from google.genai.types import (
     Part,
     Content,
@@ -53,9 +56,6 @@ logging.getLogger('google.adk').setLevel(logging.ERROR)
 #
 # ADK Streaming
 #
-
-# Load Gemini API Key
-load_dotenv()
 
 APP_NAME = "FSM DEMO APP"
 

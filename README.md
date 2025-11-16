@@ -12,29 +12,43 @@ This application provides a voice-based conversational AI agent that answers que
 
 ## Setup
 
-1.  **Install dependencies:**
-    ```bash
-    cd app
-    pip install -r requirements.txt
+1.  **Install uv (recommended):**
+    ```powershell
+    powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
     ```
 
-2.  **Configure API key:**
+2.  **Create virtual environment with Python 3.12:**
+    ```powershell
+    cd app
+    uv venv --python 3.12
+    ```
+    **Note:** Python 3.14 is not yet supported by all dependencies. Use Python 3.12 or 3.13.
+
+3.  **Install dependencies:**
+    ```powershell
+    uv pip install -r requirements.txt
+    ```
+
+4.  **Configure API keys:**
     Create a `.env` file in the `app` directory with your Google AI API key:
     ```
     GEMINI_API_KEY=your_google_ai_api_key_here
+    GOOGLE_API_KEY=your_google_ai_api_key_here
     ```
+    **Note:** Both keys are required for different components.
+    
     Get your API key from: https://makersuite.google.com/app/apikey
 
-3.  **Prepare Knowledge Base:**
+5.  **Prepare Knowledge Base:**
     Place your initial knowledge base documents in the `app/downloads` directory. The application will use `fsm-faq.md` by default if it exists.
 
-4.  **Run the application:**
-    ```bash
-    cd app
-    uvicorn main:app --reload
+6.  **Run the application:**
+    ```powershell
+    .\.venv\Scripts\Activate.ps1
+    python -m uvicorn main:app --reload
     ```
 
-5.  **Open in browser:**
+7.  **Open in browser:**
     Navigate to `http://localhost:8000`
 
 ## Usage

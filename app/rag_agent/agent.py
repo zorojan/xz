@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from google.adk.agents import Agent
 from google.adk.tools import google_search, FunctionTool
 from .knowledge_base import KnowledgeBaseManager
@@ -28,6 +31,5 @@ IMPORTANT RULES:
 - If you cannot find an answer in either the custom knowledge base or through internet search, state that you cannot find an answer.
 - Keep responses brief and conversational.
 """,
-    tools=[query_docs_tool, google_search],
-    language_code="hy-AM"  # Armenian language support
+    tools=[query_docs_tool, google_search]
 )
